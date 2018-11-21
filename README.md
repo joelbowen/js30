@@ -1,3 +1,5 @@
+![](https://javascript30.com/images/JS3-social-share.png)
+
 # JS30 - 30 Days of JavaScript
 
 This repository is for code written during the 30 day vanilla JS coding challenge with my friend @brent-harrison1.
