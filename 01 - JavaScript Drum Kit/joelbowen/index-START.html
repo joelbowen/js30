@@ -46,6 +46,65 @@
     <audio data-key="75" src="sounds/tom.wav"></audio>
     <audio data-key="76" src="sounds/tink.wav"></audio>
 
-    <script></script>
+    <script>
+      /**
+       * @function: activateKey
+       * @description: Play a sweet beat and add some visual feedback for the user
+       * to know that their key press was received.
+       */
+      function activateKey(event) {
+        // Find the audio element that matches the pressed key.
+        const audioElement = document.querySelector(
+          `audio[data-key="${event.keyCode}"]`
+        )
+        // Find the div element that matches the pressed key.
+        const keyDiv = document.querySelector(
+          `.key[data-key="${event.keyCode}"]`
+        )
+
+        // If we weren't able to find an audio element, there's no point in continuing.
+        if (!audioElement) {
+          console.log('Unable to find a sound for that key')
+          return
+        }
+
+        // Going to be strict, and not continue if we can't find the visual element either.
+        // This keeps us from getting an error when we try to add a class to this element.
+        if (!keyDiv) {
+          console.log('Unable to find a visual element for that key')
+          return
+        }
+
+        audioElement.currentTime = 0 // Make sure we start at the beginning every time
+        audioElement.play()
+
+        // Give the user some visual feedback that they pressed a recognized key
+        keyDiv.classList.add('playing')
+      }
+
+      /**
+       * @function: deactivateKey
+       * @description: fired after a css transition on a known element completes - check to
+       * ensure it was a transform, and then remove the 'playing' class
+       */
+      function deactivateKey(event) {
+        if (event.propertyName !== 'transform') {
+          return
+        }
+
+        this.classList.remove('playing') // 'this' references the watched element.
+      }
+
+      const allVisualKeys = document.querySelectorAll('.key')
+
+      // Add listeners to each known key that deactivates them whenever the CSS
+      // has completed its animations.
+      allVisualKeys.forEach(key =>
+        key.addEventListener('transitionend', deactivateKey)
+      )
+
+      // Listen for user keydown
+      window.addEventListener('keydown', activateKey)
+    </script>
   </body>
 </html>
