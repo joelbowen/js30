@@ -17,4 +17,4 @@ _All examples that begin with `$` are intended to be run from your command-line.
 5. [Commit](https://help.github.com/articles/adding-a-file-to-a-repository-using-the-command-line/) changes often – starting with your copy of the starting files. When you're ready, push your branch to github (ex, if you are a contributor: `$ git push -u origin joelbowen/day1`) and then [create a Pull Request using the Github UI](https://help.github.com/articles/creating-a-pull-request/)
 6. Profit. And if you have questions, ask me!
 
-\_Note: For extra fun, I've removed the completed solutions that were in the original js30 repo. If you gottahaveemall, check out the original on Wes's github: [https://github.com/wesbos/JavaScript30](https://github.com/wesbos/JavaScript30)
+_Note: For extra fun, I've removed the completed solutions that were in the original js30 repo. If you gottahaveemall, check out the original on Wes's github: [https://github.com/wesbos/JavaScript30](https://github.com/wesbos/JavaScript30)_
